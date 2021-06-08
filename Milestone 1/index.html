@@ -22,10 +22,11 @@
         </header>
 
         <!-- main -->
-        <ul v-for="film in films">
+        <ul v-for="(film, index) in films">
             <li style="color: white">
                 titolo: {{film.title}}
                 original titolo: {{film.original_title}}
+                <img :src='percorsoImg(index)'>
                 lingua: {{film.original_language}}
                 voto: {{film.vote_average}}
             </li>

@@ -25,7 +25,13 @@ const app = new Vue({
             .then(risp => {
                 this.films = risp.data.results;
                 //console.log(this.films);
-            })
+            });
+
+            
+        },
+        percorsoImg(i) {
+            console.log(this.films[i].original_language);
+            return "https://www.countryflags.io/" + this.films[i].original_language + "/flat/64.png"
         }
     },
     mounted() {
@@ -34,5 +40,6 @@ const app = new Vue({
         .then(risp => {
             console.log(risp.results);
         }) */
+        
     }
 })
