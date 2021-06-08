@@ -24,14 +24,26 @@ const app = new Vue({
             .get(this.apiCall)
             .then(risp => {
                 this.films = risp.data.results;
-                //console.log(this.films);
+                console.log(this.films);
             });
 
             
         },
         percorsoImg(i) {
-            console.log(this.films[i].original_language);
-            return "https://www.countryflags.io/" + this.films[i].original_language + "/flat/64.png"
+            //console.log(this.films[i].original_language);
+            if (this.films[i].original_language === 'en') {
+                return "https://www.countryflags.io/" + 'US' + "/flat/64.png"
+            } else if (this.films[i].original_language === 'zh') {
+                return "https://www.countryflags.io/" + 'CN' + "/flat/64.png"
+            } else if (this.films[i].original_language === 'hi' || this.films[i].original_language === 'te') {
+                return "https://www.countryflags.io/" + 'IN' + "/flat/64.png"
+            } else if (this.films[i].original_language === 'ja') {
+                return "https://www.countryflags.io/" + 'JP' + "/flat/64.png"
+            } else if (this.films[i].original_language === 'ko') {
+                return "https://www.countryflags.io/" + 'KR' + "/flat/64.png"
+            } else {
+                return "https://www.countryflags.io/" + this.films[i].original_language + "/flat/64.png"
+            }
         }
     },
     mounted() {
