@@ -9,17 +9,28 @@
 </head>
 
 <body>
-    <!-- header -->
-    <header id="header">
-        <img src="https://www.freepnglogos.com/uploads/netflix-logo-0.png" alt="">
-
-        <input type="text">
-        <button>search</button>
-    </header>
-
 
     <!-- #root -->
     <div id="root">
+
+        <!-- header -->
+        <header id="header">
+            <img src="https://www.freepnglogos.com/uploads/netflix-logo-0.png" alt="">
+
+            <input v-model="search">
+            <button @click="findFilms">search</button>
+        </header>
+
+        <!-- main -->
+        <ul v-for="film in films">
+            <li style="color: white">
+                titolo: {{film.title}}
+                original titolo: {{film.original_title}}
+                lingua: {{film.original_language}}
+                voto: {{film.vote_average}}
+            </li>
+        </ul>
+
 
     </div>
 
