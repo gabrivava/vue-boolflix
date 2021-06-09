@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue-boolflix</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+    <!-- #root -->
+    <div id="root">
+
+        <!-- header -->
+        <header id="header">
+            <img src="https://www.freepnglogos.com/uploads/netflix-logo-0.png" alt="">
+
+            <input v-model="search">
+            <button  @click="find">search</button>
+        </header>
+
+        <!-- main -->
+        <div class="films">
+            <ul v-for="(film, index) in films">
+                <li style="color: white">
+                    titolo: {{film.title}}
+                    original titolo: {{film.original_title}}
+                    <img class="bandiera" :src='percorsoImg(index)'>
+                    lingua: {{film.original_language}}
+                    voto: {{film.vote_average}}
+                </li>
+            </ul>
+
+        </div>
+        
+        <div class="series">
+            <ul v-for="(serie, index) in series">
+                <li style="color: white">
+                    nome: {{serie.name}}
+                    nome originale: {{serie.original_name}}
+                    <img class="bandiera" :src = 'imgSerie(index)'>
+                    lingua: {{serie.original_language}}
+                    voto: {{serie.vote_average}}
+                </li>
+            </ul>
+
+        </div>
+
+
+
+
+    </div>
+
+
+    <!-- script AJAX e Vue js -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+    <script src="./main.js"></script>
+</body>
+</html>
