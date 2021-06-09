@@ -69,6 +69,12 @@ const app = new Vue({
                 return 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/EarthFlag1.svg/350px-EarthFlag1.svg.png'
             }
             
+        },
+
+        //poster Img
+        poster(i) {
+            console.log(this.films[i].poster_path);
+            return 'https://image.tmdb.org/t/p/​' + 'w342' + this.films[i].poster_path
         }
     },
     mounted() {
