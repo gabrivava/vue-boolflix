@@ -24,13 +24,13 @@
         <!-- main -->
         <div class="films">
             <ul v-for="(film, index) in films">
-                <li style="color: white">
+                <li class="film" style="color: white">
                     titolo: {{film.title}}
                     original titolo: {{film.original_title}}
                     <img class="bandiera" :src='percorsoImg(index)'>
                     lingua: {{film.original_language}}
                     voto: {{film.vote_average}}
-                    <img :src="poster(index)" alt="">
+                    <img class="poster" :src="poster(index)" alt="">
                 </li>
             </ul>
 
@@ -38,12 +38,13 @@
         
         <div class="series">
             <ul v-for="(serie, index) in series">
-                <li style="color: white">
+                <li class="serie" style="color: white">
                     nome: {{serie.name}}
                     nome originale: {{serie.original_name}}
                     <img class="bandiera" :src = 'imgSerie(index)'>
                     lingua: {{serie.original_language}}
                     voto: {{serie.vote_average}}
+                    <img class="poster" :src="posterSerie(index)" alt="">
                 </li>
             </ul>
 

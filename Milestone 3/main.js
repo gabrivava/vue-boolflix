@@ -73,12 +73,20 @@ const app = new Vue({
 
         //poster Img
         poster(i) {
-            if(this.films[i].poster_path === null) {
+            if(this.films[i].poster_path == null) {
                 return 'https://image.tmdb.org/t/p/w342/wwemzKWzjKYJFfCeiB57q3r4Bcm.png'
             } else {
                 return 'https://image.tmdb.org/t/p/w342' + this.films[i].poster_path;
             }
-        }                                              
+        },
+        
+        posterSerie(i) {
+            if(this.series[i].poster_path === null) {
+                return 'https://image.tmdb.org/t/p/w342/wwemzKWzjKYJFfCeiB57q3r4Bcm.png'
+            } else {
+                return 'https://image.tmdb.org/t/p/w342' + this.series[i].poster_path;
+            }
+        }
     },
     mounted() {
 
