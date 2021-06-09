@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <title>vue-boolflix</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+    <!-- #root -->
+    <div id="root">
+
+        <!-- header -->
+        <header id="header">
+            <img src="https://www.freepnglogos.com/uploads/netflix-logo-0.png" alt="">
+
+            <input v-model="search" @keyup="find">
+        </header>
+
+        <!-- main -->
+        <h2 v-if="films.length > 0">Films</h2>
+        <div class="films">
+            <ul v-for="(film, index) in films">
+                <li class="film">
+
+                    <!-- poster sempre visibile -->
+                    <img class="poster" :src="poster(index)" alt="">
+
+                    <!-- info visibili all'hover -->
+                    <div class="info">
+                        <h3>Titolo:</h3>
+                        <span>{{film.title}}</span>
+                        <h3>Titolo originale:</h3>
+                        <span>{{film.original_title}}</span>
+                        <img class="bandiera" :src='percorsoImg(index)'>
+                        <h3>Voto:</h3>
+                        <span>{{film.vote_average}}</span>
+                        <h3>Overview:</h3>
+                        <span class="overview">{{film.overview}}</span>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+        
+        <h2 v-if="films.length > 0">Serie TV</h2>
+        <div class="series">
+            <ul v-for="(serie, index) in series">
+                <li class="serie">
+
+                    <!-- poster sempre visibile -->
+                    <img class="poster" :src="posterSerie(index)" alt="">
+
+                    <!-- info visibili all'hover -->
+                    <div class="info">
+                        <h3>Titolo:</h3>
+                        <span>{{serie.name}}</span>
+                        <h3>Titolo originale:</h3>
+                        <span>{{serie.original_name}}</span>
+                        <img class="bandiera" :src='imgSerie(index)'>
+                        <h3>Voto:</h3>
+                        <span>{{serie.vote_average}}</span>
+                        <h3>Overview:</h3>
+                        <span class="overview">{{serie.overview}}</span>
+                    </div>
+
+                </li>
+            </ul>
+
+        </div>
+
+
+
+
+    </div>
+
+
+    <!-- script AJAX e Vue js -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+    <script src="./main.js"></script>
+</body>
+</html>

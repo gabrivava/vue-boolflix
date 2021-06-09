@@ -1,0 +1,91 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* header */
+#header {
+    background: linear-gradient(180deg, #000000 0%, rgba(196, 196, 196, 0) 100%);
+    height: 90px;
+    display: flex;
+    align-items: center;
+    padding: 0 3rem;
+}
+#header img {
+    height: 40px;
+}
+
+/* main */
+body {
+    background-color: rgb(29, 29, 29);
+    font-family: 'Roboto', sans-serif;
+}
+.bandiera {
+    height: 30px;
+}
+
+/* films and series */
+.films,
+.series {
+    display: flex;
+    width: 96%;
+    margin: auto;
+    overflow-y: hidden;
+}
+.films .film,
+.series .serie {
+    height: 400px;
+    margin: 0.5rem;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    border-radius: 5px;
+    position: relative;
+}
+.poster{
+    height: 100%;
+    max-width: 300px;
+    object-fit: contain;
+    border-radius: 5px;
+}
+h2 {
+    color: white;
+    margin: 1rem 3rem;
+}
+/* info e hover */
+.info {
+    display: none;
+    line-height: 1.3rem;
+    color: white;
+}
+.info h3 {
+    font-size: 1rem;
+}
+.info span {
+    font-size: 0.8rem;
+    color: rgb(175, 175, 175);
+}
+.info .overview{
+    display: block;
+    height: 160px;
+    overflow-x: auto;
+}
+.info img {
+    position: absolute;
+    top: -30px;
+    right: -10px;
+}
+.film:hover .poster,
+.serie:hover .poster {
+    opacity: 0.07;
+}
+.film:hover .info,
+.serie:hover .info{
+    position: absolute;
+    display: block;
+    height: 300px;
+    width: 200px;
+}
