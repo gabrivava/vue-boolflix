@@ -73,9 +73,12 @@ const app = new Vue({
 
         //poster Img
         poster(i) {
-            console.log(this.films[i].poster_path);
-            return 'https://image.tmdb.org/t/p/​' + 'w342' + this.films[i].poster_path
-        }
+            if(this.films[i].poster_path === null) {
+                return 'https://image.tmdb.org/t/p/w342/wwemzKWzjKYJFfCeiB57q3r4Bcm.png'
+            } else {
+                return 'https://image.tmdb.org/t/p/w342' + this.films[i].poster_path;
+            }
+        }                                              
     },
     mounted() {
 
