@@ -41,9 +41,6 @@ body {
     background-color: rgb(29, 29, 29);
     font-family: 'Roboto', sans-serif;
 }
-.bandiera img {
-    height: 30px;
-}
 
 /* films and series */
 .films,
@@ -103,9 +100,10 @@ h2 {
     display: block;
 }
 .info .bandiera {
-    position: absolute;
-    top: -30px;
-    right: -10px;
+    position: relative;
+}
+.bandiera img {
+    height: 40px;
 }
 .film:hover .poster,
 .serie:hover .poster {
