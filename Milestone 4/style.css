@@ -86,6 +86,11 @@ h2 {
     display: none;
     line-height: 1.3rem;
     color: white;
+    height: 300px;
+    width: 220px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: absolute;
 }
 .info h3 {
     font-size: 1rem;
@@ -96,8 +101,6 @@ h2 {
 }
 .info .overview{
     display: block;
-    height: 160px;
-    overflow-x: auto;
 }
 .info .bandiera {
     position: absolute;
@@ -111,9 +114,6 @@ h2 {
 }
 .film:hover .info,
 .serie:hover .info{
-    position: absolute;
     display: block;
-    height: 300px;
-    width: 200px;
     transition: 1s;
 }
