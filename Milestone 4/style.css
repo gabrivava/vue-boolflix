@@ -41,7 +41,7 @@ body {
     background-color: rgb(29, 29, 29);
     font-family: 'Roboto', sans-serif;
 }
-.bandiera {
+.bandiera img {
     height: 30px;
 }
 
@@ -75,6 +75,12 @@ h2 {
     color: white;
     margin: 1rem 3rem;
 }
+.stelle {
+    display: inline-block;
+    color: rgb(212, 184, 24);
+    padding: 0.5rem 0;
+}
+
 /* info e hover */
 .info {
     display: none;
@@ -93,7 +99,7 @@ h2 {
     height: 160px;
     overflow-x: auto;
 }
-.info img {
+.info .bandiera {
     position: absolute;
     top: -30px;
     right: -10px;

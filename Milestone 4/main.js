@@ -12,8 +12,8 @@ const app = new Vue({
         films: [],
         search: '',
         apiCallFilm: '',
-        apiCallSerie: '',
-        hover: false,
+        apiCallSerie: '', 
+        bandiere: ['it', 'en', 'fr', 'ja', 'es']  
     },
     methods: {
         findFilms() {
@@ -25,6 +25,8 @@ const app = new Vue({
             .then(risp => {
                 this.films = risp.data.results;
                 console.log(this.films);
+            }).catch(e => {
+                console.log(e)
             });
         },
         findSeries() {
@@ -47,16 +49,8 @@ const app = new Vue({
             //console.log(this.films[i].original_language);
             if (this.films[i].original_language === 'en') {
                 return "https://www.countryflags.io/" + 'US' + "/flat/64.png"
-            } else if (this.films[i].original_language === 'zh') {
-                return "https://www.countryflags.io/" + 'CN' + "/flat/64.png"
-            } else if (this.films[i].original_language === 'hi' || this.films[i].original_language === 'te') {
-                return "https://www.countryflags.io/" + 'IN' + "/flat/64.png"
             } else if (this.films[i].original_language === 'ja') {
                 return "https://www.countryflags.io/" + 'JP' + "/flat/64.png"
-            } else if (this.films[i].original_language === 'ko') {
-                return "https://www.countryflags.io/" + 'KR' + "/flat/64.png"
-            } else if (this.films[i].original_language === 'cs') {
-                return "https://www.countryflags.io/" + 'CZ' + "/flat/64.png"
             } else {
                 return "https://www.countryflags.io/" + this.films[i].original_language + "/flat/64.png"
             }
