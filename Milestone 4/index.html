@@ -18,9 +18,21 @@
 
         <!-- header -->
         <header id="header">
-            <img src="https://www.freepnglogos.com/uploads/netflix-logo-0.png" alt="">
+            <div>
+                <img src="https://www.freepnglogos.com/uploads/netflix-logo-0.png" alt="">
+    
+                <ul class="nav">
+                    <li>Home</li>
+                    <li>Films</li>
+                    <li>Serie TV</li>
+                </ul>
 
-            <input v-model="search" @keyup="find">
+            </div>
+
+            <div>
+                <input v-model="search" @keyup="find">
+            </div>
+            
         </header>
 
         <!-- main -->
@@ -36,11 +48,11 @@
                     <div class="info">
                         <h3>Titolo:</h3>
                         <span>{{film.title}}</span>
-                        <h3>Titolo originale:</h3>
-                        <span>{{film.original_title}}</span>
+                        <h3 v-if="film.title != film.original_title">Titolo originale:</h3>
+                        <span v-if="film.title != film.original_title">{{film.original_title}}</span>
                         <img class="bandiera" :src='percorsoImg(index)'>
                         <h3>Voto:</h3>
-                        <span>{{film.vote_average}}</span>
+                        <span>{{film.vote_average / 2}}</span>
                         <h3>Overview:</h3>
                         <span class="overview">{{film.overview}}</span>
                     </div>
@@ -49,7 +61,7 @@
 
         </div>
         
-        <h2 v-if="films.length > 0">Serie TV</h2>
+        <h2 v-if="series.length > 0">Serie TV</h2>
         <div class="series">
             <ul v-for="(serie, index) in series">
                 <li class="serie">

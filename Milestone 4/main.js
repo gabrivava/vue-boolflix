@@ -26,7 +26,6 @@ const app = new Vue({
                 this.films = risp.data.results;
                 console.log(this.films);
             });
-
         },
         findSeries() {
             this.apiCallSerie = 
@@ -74,7 +73,7 @@ const app = new Vue({
 
         //poster Img
         poster(i) {
-            if(this.films[i].poster_path == null) {
+            if(this.films[i].poster_path === null) {
                 return 'https://image.tmdb.org/t/p/w342/wwemzKWzjKYJFfCeiB57q3r4Bcm.png'
             } else {
                 return 'https://image.tmdb.org/t/p/w342' + this.films[i].poster_path;
@@ -97,8 +96,3 @@ const app = new Vue({
         
     }
 });
-
-
-function visibleInfo(i) {
-            return console.log(i);
-        }
