@@ -82,7 +82,17 @@ const app = new Vue({
             }
         },
 
-        //info film all'hover
+
+        //chiamata per il cast
+        castCall(id) {
+            const castCall = 'https://api.themoviedb.org/3/movie/' + id + '/credits?api_key=' + this.apiKey;
+            axios.get(castCall)
+            .then(risp => {
+                console.log(risp);
+            })
+        }
+
+        
         
     },
     mounted() {
