@@ -10,9 +10,7 @@ const app = new Vue({
         apiKey: '96d54495d5f18cd6e4430c6adc673560',
         series: [],
         films: [],
-        search: '',
-        apiCallFilm: '',
-        apiCallSerie: '', 
+        search: '', 
         bandiere: ['it', 'en', 'fr', 'ja', 'es']  
     },
     methods: {
@@ -63,22 +61,13 @@ const app = new Vue({
 
         //poster Img
         poster(i) {
-            if(this.films[i].poster_path === null) {
+            if(i.poster_path === null) {
                 return 'https://image.tmdb.org/t/p/w342/wwemzKWzjKYJFfCeiB57q3r4Bcm.png'
             } else {
-                return 'https://image.tmdb.org/t/p/w342' + this.films[i].poster_path;
+                return 'https://image.tmdb.org/t/p/w342' + i.poster_path;
             }
         },
         
-        posterSerie(i) {
-            if(this.series[i].poster_path === null) {
-                return 'https://image.tmdb.org/t/p/w342/wwemzKWzjKYJFfCeiB57q3r4Bcm.png'
-            } else {
-                return 'https://image.tmdb.org/t/p/w342' + this.series[i].poster_path;
-            }
-        },
-
-
         //chiamata per il cast
         castCall(id) {
             const castCall = 'https://api.themoviedb.org/3/movie/' + id + '/credits?api_key=' + this.apiKey;
