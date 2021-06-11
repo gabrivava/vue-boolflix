@@ -16,33 +16,29 @@ const app = new Vue({
         bandiere: ['it', 'en', 'fr', 'ja', 'es']  
     },
     methods: {
-        findFilms() {
-            this.apiCallFilm = 
+
+        // preforming multiple requests
+        getFilms() {
+            const filmsApiCall = 
             'https://api.themoviedb.org/3/search/movie?api_key=' + this.apiKey + '&query=' + this.search.split(' ').join('+');
-            //console.log(this.apiCallFilm);
-            axios
-            .get(this.apiCallFilm)
-            .then(risp => {
-                this.films = risp.data.results;
-                console.log(this.films);
-            }).catch(e => {
-                console.log(e)
-            });
+            return axios.get(filmsApiCall);
         },
-        findSeries() {
-            this.apiCallSerie = 
-            'https://api.themoviedb.org/3/search/tv?api_key=' + this.apiKey + '&query=' + this.search.split(' ').join('+');
-            //console.log(this.apiCallSerie);
-            axios
-            .get(this.apiCallSerie)
-            .then(risp => {
-                this.series = risp.data.results;
-                console.log(this.series);
-            });
+
+        getSeries() {
+            const seriesApiCall = 'https://api.themoviedb.org/3/search/tv?api_key=' + this.apiKey + '&query=' + this.search.split(' ').join('+');
+            return axios.get(seriesApiCall);
         },
+
         find() {
-            this.findFilms();
-            this.findSeries();
+            Promise.all([this.getFilms(), this.getSeries()])
+                .then( risp => {
+                const films = risp[0].data.results;
+                this.films = films;
+                //console.log(films);
+                const series = risp[1].data.results;
+                this.series = series;
+                //console.log(series)
+                });
         },
 
         percorsoImg(i) {
