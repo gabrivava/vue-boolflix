@@ -11,7 +11,8 @@ const app = new Vue({
         series: [],
         films: [],
         search: '', 
-        bandiere: ['it', 'en', 'fr', 'ja', 'es']  
+        bandiere: ['it', 'en', 'fr', 'ja', 'es'],
+        cast: []
     },
     methods: {
 
@@ -35,8 +36,48 @@ const app = new Vue({
                 //console.log(films);
                 const series = risp[1].data.results;
                 this.series = series;
-                //console.log(series)
-                });
+                // this.castCall();
+            });
+
+                
+        },
+
+        castCall() {
+            this.clearCast();
+            for (let i = 0; i < this.films.length; i++) {
+                const element = this.films[i];
+                const castCall = 'https://api.themoviedb.org/3/movie/' + element.id + '/credits?api_key=' + this.apiKey;
+            
+                axios.get(castCall)
+                .then( risp => {
+                    // console.log(risp.data.cast);
+                    // console.log(risp.data.cast);
+                    var cast = [];
+                    cast = risp.data.cast;
+                    // console.log(cast);
+                    this.casts.push(cast);
+                })
+            }
+        },
+
+        castCallOne(id) {
+            // console.log(id);
+            const castCall = 'https://api.themoviedb.org/3/movie/' + id + '/credits?api_key=' + this.apiKey;
+        
+            axios.get(castCall)
+            .then( risp => {
+                // console.log(risp.data.cast);
+                // console.log(risp.data.cast);
+                var cast = [];
+                cast = risp.data.cast;
+                // console.log(cast);
+                this.cast = cast;
+            })
+            
+        },
+
+        clearCast() {
+            this.casts = [];
         },
 
         percorsoImg(i) {
@@ -66,18 +107,7 @@ const app = new Vue({
             } else {
                 return 'https://image.tmdb.org/t/p/w342' + i.poster_path;
             }
-        },
-        
-        //chiamata per il cast
-        castCall(id) {
-            const castCall = 'https://api.themoviedb.org/3/movie/' + id + '/credits?api_key=' + this.apiKey;
-            axios.get(castCall)
-            .then(risp => {
-                console.log(risp);
-            })
-        }
-
-        
+        },  
         
     },
     mounted() {

@@ -90,17 +90,25 @@ h2 {
     position: absolute;
 }
 .info h3 {
-    font-size: 1rem;
+    font-size: 1rem;    
+    padding: 1rem 0;
 }
-.info span {
-    font-size: 0.8rem;
+.info .title {
+    font-size: 1.4rem;
     color: rgb(175, 175, 175);
+
 }
 .info .overview{
     display: block;
+    color: rgb(175, 175, 175);
 }
 .info .bandiera {
     position: relative;
+}
+.info .voti {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 }
 .bandiera img {
     height: 40px;
@@ -114,4 +122,13 @@ h2 {
 .serie:hover .info{
     display: block;
     transition: 1s;
+}
+
+.cast {
+    list-style: none;
+    color: grey;
+}
+.cast li {
+    color: grey;
+    display: inline-block;
 }
